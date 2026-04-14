@@ -1,0 +1,22 @@
+@import "tailwindcss";
+
+/* Esto le dice a Tailwind v4 que escanee tus carpetas en la raíz */
+@source "../components/**/*.{ts,tsx}";
+@source "../content/**/*.{ts,tsx}";
+@source "../src/**/*.{ts,tsx}";
+
+@theme {
+  /* Registramos los colores para que funcionen tus clases bg-primary, etc. */
+  --color-primary: #0F2F57;
+  --color-secondary: #C9A35A;
+  --color-accent: #F7F4EE;
+  
+  --font-sans: var(--font-inter);
+}
+
+/* Opcional: Estilo base para que el fondo sea el marfil institucional */
+@layer base {
+  body {
+    @apply bg-[#F7F4EE] text-[#1E2430];
+  }
+}
