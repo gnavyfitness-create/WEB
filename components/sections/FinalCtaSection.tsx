@@ -10,7 +10,7 @@ interface FinalCtaSectionProps {
   primaryCta: { label: string; href: string };
   secondaryCta?: { label: string; href: string };
   trustNote?: string;
-  imageSrc?: string; // Prop para el fondo cinematográfico
+  imageSrc?: string; 
 }
 
 export default function FinalCtaSection({
@@ -23,56 +23,66 @@ export default function FinalCtaSection({
   imageSrc
 }: FinalCtaSectionProps) {
   return (
-    <Section className="relative bg-[#0F2F57] text-white text-center py-32 md:py-48 overflow-hidden">
+    // CAMBIO: Fondo blanco puro y texto oscuro
+    <Section className="relative bg-white text-[#0F2F57] text-center py-24 md:py-40 overflow-hidden border-t border-[#D9D6CF]/50">
       
-      {/* Fondo Cinematográfico (Noir Aesthetic) */}
+      {/* Fondo Cinematográfico (Aclarado) */}
       {imageSrc && (
-        <div className="absolute inset-0 z-0">
+        <div className="absolute inset-0 z-0 opacity-40">
           <Image
             src={imageSrc}
             alt="Asesoría Master Almaraz"
             fill
-            className="object-cover opacity-50 grayscale mix-blend-luminosity"
+            className="object-cover grayscale"
             sizes="100vw"
           />
-          {/* Overlay de contraste brutal para legibilidad */}
-          <div className="absolute inset-0 bg-gradient-to-t from-[#0F2F57] via-[#0F2F57]/90 to-[#0F2F57]/60" />
+          {/* CAMBIO: Overlay de gradiente blanco para que el texto sea legible */}
+          <div className="absolute inset-0 bg-gradient-to-t from-white via-white/90 to-white/60" />
         </div>
       )}
 
-      {/* Contenedor Principal (Elevado sobre el fondo) */}
+      {/* Marco arquitectónico interno (Paspartú) oscuro */}
+      <div className="absolute inset-6 md:inset-12 border border-[#D9D6CF] z-0 pointer-events-none hidden md:block"></div>
+      
+      {/* Elementos decorativos en las esquinas del marco */}
+      <div className="absolute top-12 left-12 w-2 h-2 bg-[#C9A35A] z-0 hidden md:block"></div>
+      <div className="absolute bottom-12 right-12 w-2 h-2 bg-[#C9A35A] z-0 hidden md:block"></div>
+
+      {/* Contenedor Principal */}
       <div className="relative z-10 max-w-4xl mx-auto px-6">
         {eyebrow && (
-          <span className="text-[#C9A35A] font-bold tracking-[0.4em] uppercase text-[10px] mb-8 block">
+          <span className="text-[#C9A35A] font-bold tracking-[0.4em] uppercase text-xs mb-8 block">
             {eyebrow}
           </span>
         )}
         
-        <h2 className="text-5xl md:text-6xl lg:text-7xl font-black mb-8 leading-[1.05] tracking-tighter uppercase italic">
+        {/* Título en Azul Marino */}
+        <h2 className="text-4xl md:text-6xl lg:text-7xl font-black mb-8 leading-[1.05] tracking-tighter text-[#0F2F57]">
           {title}
         </h2>
         
-        <p className="text-white/80 text-xl md:text-2xl mb-12 max-w-2xl mx-auto leading-relaxed font-light">
+        {/* Subtítulo en gris oscuro */}
+        <p className="text-[#1E2430]/70 text-lg md:text-xl mb-14 max-w-2xl mx-auto leading-relaxed font-light">
           {subtitle}
         </p>
         
-        <div className="flex flex-col sm:flex-row gap-6 justify-center items-center mb-16">
+        <div className="flex flex-col sm:flex-row gap-4 justify-center items-center mb-16">
+          {/* Botón Principal (Oscuro para contrastar con el fondo blanco) */}
           <Button 
             href={primaryCta.href} 
             external 
-            size="lg" 
-            variant="secondary"
-            className="w-full sm:w-auto px-12 py-5 rounded-full text-sm tracking-widest uppercase shadow-[0_0_30px_rgba(201,163,90,0.3)] hover:shadow-[0_0_50px_rgba(201,163,90,0.5)] transition-all duration-500"
+            variant="primary" // O la variante que use tu fondo oscuro por defecto
+            className="w-full sm:w-auto px-10 py-4 rounded-sm text-xs font-bold tracking-widest uppercase bg-[#0F2F57] text-white hover:bg-[#C9A35A] transition-colors duration-300"
           >
             {primaryCta.label}
           </Button>
           
+          {/* Botón Secundario (Outline oscuro) */}
           {secondaryCta && (
             <Button 
               href={secondaryCta.href} 
-              size="lg" 
-              variant="ghost" 
-              className="w-full sm:w-auto px-10 border border-white/20 text-white hover:bg-white hover:text-[#0F2F57] rounded-full text-sm tracking-widest uppercase transition-all duration-500"
+              variant="outline" 
+              className="w-full sm:w-auto px-10 py-4 border border-[#0F2F57] text-[#0F2F57] rounded-sm text-xs font-bold tracking-widest uppercase hover:bg-[#0F2F57] hover:text-white transition-colors duration-300"
             >
               {secondaryCta.label}
             </Button>
@@ -80,8 +90,8 @@ export default function FinalCtaSection({
         </div>
 
         {trustNote && (
-          <div className="inline-block border-t border-white/10 pt-8">
-            <p className="text-xs text-white/50 tracking-[0.2em] uppercase font-medium">
+          <div className="inline-block border-t border-[#D9D6CF] pt-8 mt-4">
+            <p className="text-[10px] text-[#0F2F57]/40 tracking-[0.3em] uppercase font-bold">
               {trustNote}
             </p>
           </div>

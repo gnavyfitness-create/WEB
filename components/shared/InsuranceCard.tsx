@@ -1,81 +1,52 @@
+'use client';
 import React from 'react';
 import Image from 'next/image';
-import Card from '@/components/ui/Card';
-import Button from '@/components/ui/Button';
+import { motion } from 'framer-motion';
 
 interface InsuranceCardProps {
   title: string;
   description: string;
   badge?: string;
-  href?: string;
-  ctaLabel?: string;
-  featured?: boolean;
-  className?: string;
   imageSrc: string; 
 }
 
-export default function InsuranceCard({
-  title,
-  description,
-  badge,
-  href,
-  ctaLabel = "Más información",
-  className,
-  imageSrc
-}: InsuranceCardProps) {
+export default function InsuranceCard({ title, description, badge, imageSrc }: InsuranceCardProps) {
   return (
-    <Card 
-      className={`relative flex flex-col h-[500px] w-full group overflow-hidden border-none p-0 bg-[#0F2F57] ${className}`}
+    <motion.div 
+      whileHover={{ y: -12 }}
+      transition={{ type: "spring", stiffness: 300 }}
+      className="relative min-w-[320px] md:min-w-[420px] h-[550px] md:h-[600px] rounded-2xl overflow-hidden group bg-white border border-[#D9D6CF] shadow-[0_15px_40px_-15px_rgba(0,0,0,0.1)] hover:shadow-[0_30px_60px_-15px_rgba(0,0,0,0.15)] transition-all duration-500"
     >
-      {/* 1. Imagen de Fondo - Zoom suave en hover */}
-      <div className="absolute inset-0 z-0 transition-transform duration-1000 ease-out lg:group-hover:scale-110">
-        <Image
-          src={imageSrc}
-          alt={title}
-          fill
-          priority
-          className="object-cover opacity-50 lg:opacity-60 lg:group-hover:opacity-40 transition-opacity"
-          sizes="(max-width: 768px) 100vw, 25vw"
-        />
-      </div>
+      {/* Imagen de fondo de alta calidad */}
+      <Image
+        src={imageSrc}
+        alt={title}
+        fill
+        className="object-cover transition-transform duration-1000 group-hover:scale-105"
+        sizes="(max-width: 768px) 100vw, 33vw"
+      />
 
-      {/* 2. Overlay Radial - Garantiza legibilidad al centro */}
-      <div className="absolute inset-0 z-1 bg-[radial-gradient(circle_at_center,rgba(15,47,87,0.4)_0%,rgba(15,47,87,0.8)_100%)]" />
+      {/* Degradado claro en la base para legibilidad (Igual que Apple) */}
+      <div className="absolute inset-0 bg-gradient-to-t from-white via-white/40 to-transparent opacity-90" />
 
-      {/* 3. Contenido CENTRADO TOTAL */}
-      <div className="relative z-10 flex flex-col h-full p-8 items-center justify-center text-center">
-        
+      {/* Contenido Editorial */}
+      <div className="absolute inset-0 p-10 flex flex-col justify-end">
         {badge && (
-          <span className="text-[#C9A35A] font-bold uppercase text-[10px] tracking-[0.3em] mb-6 block">
+          <span className="text-[#C9A35A] font-black uppercase text-[10px] tracking-[0.4em] mb-4">
             {badge}
           </span>
         )}
-        
-        <h3 className="text-3xl md:text-4xl font-black text-white mb-6 leading-[1.1] tracking-tighter uppercase italic">
+        {/* Título en azul marino para coherencia */}
+        <h3 className="text-4xl md:text-5xl font-black text-[#0F2F57] mb-6 leading-[0.9] tracking-tighter uppercase">
           {title}
         </h3>
-        
-        {/* Descripción: Visible en móvil, se revela en desktop */}
-        <p className="text-white/90 lg:text-white/70 text-sm leading-relaxed mb-8 max-w-[260px] 
-                      opacity-100 lg:opacity-0 lg:group-hover:opacity-100 
-                      transition-all duration-500 transform lg:translate-y-4 lg:group-hover:translate-y-0">
+        <p className="text-[#1E2430]/80 text-lg leading-snug font-light max-w-sm italic">
           {description}
         </p>
         
-        {href && (
-          <div className="transition-all duration-500 
-                          opacity-100 lg:opacity-0 lg:group-hover:opacity-100 
-                          scale-100 lg:scale-90 lg:group-hover:scale-100">
-            <Button 
-              href={href} 
-              variant="secondary" 
-              className="rounded-full text-xs font-bold px-8 py-3 shadow-xl"
-            >
-              {ctaLabel}
-            </Button>
-          </div>
-        )}
+        {/* Indicador de interacción */}
+        <div className="w-12 h-1 bg-[#C9A35A] mt-8 transition-all duration-500 group-hover:w-24" />
       </div>
-    </Card>
+    </motion.div>
   );
 }

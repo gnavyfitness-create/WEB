@@ -2,37 +2,31 @@ import { HeroContent } from "../../types/home";
 import { createWhatsAppLink } from "../../lib/whatsapp/whatsapp";
 import { BUSINESS_INFO } from "../../lib/utils/constants";
 
-/**
- * Contenido editorial para la sección Hero.
- * Estilo: Premium Trust Advisory (Inspiración Folioblox).
- */
-
 export const heroContent: HeroContent = {
-  title: "Héctor Almaraz. Asesoría en Blindaje Patrimonial.",
+  title: "Héctor Almaraz. Asesor Exclusivo de Seguros Monterrey.",
   subtitle:
-    "Escuchamos tu situación y diseñamos soluciones claras para proteger tu salud, familia y futuro financiero en Tepic.",
+    "Protección que trasciende. Diseñamos estrategias de vida, retiro (Imagina Ser) y educación (SeguBeca) con el respaldo de la institución más sólida de México.",
   
   primaryCta: {
-    label: "Solicitar asesoría por WhatsApp",
+    label: "Agendar Sesión de Diagnóstico",
     href: createWhatsAppLink(
       BUSINESS_INFO.whatsapp,
-      "Hola Héctor, me gustaría agendar una asesoría personalizada para revisar mis seguros."
+      "Hola Héctor, me gustaría agendar una asesoría para diseñar mi estrategia patrimonial con Seguros Monterrey."
     ),
     external: true,
   },
 
   secondaryCta: {
-    label: "Cotizar mi seguro",
-    href: "#formulario",
+    label: "Conocer mi trayectoria",
+    href: "#trayectoria", // Enlazaremos a la nueva sección que vamos a crear
   },
 
-  supportText: "Atención personalizada en Ciudad del Valle, Nayarit.",
+  supportText: "Asesoría patrimonial de élite en Ciudad del Valle, Nayarit.",
 
-  // Estos datos alimentarán los KPIs del estilo editorial que vimos
   quickInfo: [
-    { label: "Ubicación", value: "Cd. del Valle, Tepic" },
+    { label: "Sede", value: "Cd. del Valle, Tepic" },
     { label: "Experiencia", value: "+10 Años Certificado" },
-    { label: "Alianzas", value: "GNP / AXA / MetLife" },
-    { label: "Impacto", value: "+500 Familias" },
+    { label: "Respaldo", value: "Seguros Monterrey NYL" }, // ¡Adiós competencia!
+    { label: "Especialidad", value: "SeguBeca e Imagina Ser" },
   ],
 };

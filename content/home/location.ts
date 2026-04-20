@@ -1,27 +1,33 @@
 import { createWhatsAppLink } from "@/lib/whatsapp/whatsapp";
-import { BUSINESS_INFO } from "@/lib/utils/constants"; // Usamos tu constante para mantener consistencia global
+import { BUSINESS_INFO } from "@/lib/utils/constants";
 
 export const locationContent = {
-  eyebrow: "Nuestra Sede",
-  title: "Respaldo presencial en Ciudad del Valle",
-  subtitle: "Un espacio diseñado para la consultoría patrimonial confidencial. Estamos físicamente en Tepic para dar la cara por ti cuando más lo necesites.",
+  eyebrow: "Sede Operativa",
+  title: "Respaldo institucional en Ciudad del Valle",
+  subtitle: "Diseñamos un espacio exclusivo para la planeación patrimonial confidencial. Más que una oficina, es tu centro de operaciones en Tepic; el lugar donde damos la cara para gestionar y respaldar cada uno de tus contratos.",
+  
   addressLines: [
     "Avenida Universidad 65", 
     "Ciudad del Valle", 
-    "Tepic, Nayarit"
+    "Tepic, Nayarit, C.P. 63157"
   ],
+  
   hours: "Lunes a Viernes: 9:00 AM - 7:00 PM",
-  mapEmbedUrl: "https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3712.946395343465!2d-104.8966785!3d21.488338!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x8427371f6a623f95%3A0x6b49e3933c6a992e!2sAv.%20Universidad%2065%2C%20Cd%20del%20Valle%2C%2063157%20Tepic%2C%20Nay.!5e0!3m2!1ses-419!2smx!4v1712600000000!5m2!1ses-419!2smx", // Mantenemos tu URL de Google Maps
-  imageSrc: "/images/home/location-office.webp", // Enlace a la nueva fotografía arquitectónica
+  
+  // INYECTAMOS TU MAPA REAL AQUÍ:
+mapEmbedUrl: "https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d29698.71109609458!2d-104.891479576347!3d21.49444208750683!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x84273780a0e5e381%3A0x93fff01527de81ac!2sMaster%20Almaraz%20%7C%20Seguros%20y%20Asesor%C3%ADa%20Patrimonial!5e0!3m2!1ses!2smx!4v1776715303047!5m2!1ses!2smx",  
+  imageSrc: "/images/home/location-office.webp", 
+  
   primaryCta: { 
-    label: "Abrir en Maps", 
-    href: "https://maps.app.goo.gl/YourGoogleMapsLink" 
+    label: "Ruta GPS",
+    href: "https://maps.app.goo.gl/tu-enlace-corto" // Opcional: Aquí puedes poner el enlace corto de compartir para el botón
   },
+  
   secondaryCta: { 
-    label: "Agendar Cita", 
+    label: "Agendar Sesión Privada", 
     href: createWhatsAppLink(
       BUSINESS_INFO.whatsapp, 
-      "Hola Héctor, me gustaría agendar una asesoría presencial en tu oficina de Ciudad del Valle."
+      "Hola Héctor, me gustaría agendar una asesoría presencial en tu firma de Ciudad del Valle."
     )
   }
 };

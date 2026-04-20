@@ -1,36 +1,37 @@
 export const insurancesContent = {
-  eyebrow: "Seguros principales",
-  title: "Protección para tu presente y tu futuro",
-  subtitle: "Conoce las soluciones más importantes para proteger tu salud, patrimonio, familia y tranquilidad financiera.",
+  eyebrow: "Ingeniería Financiera",
+  title: "Soluciones de Protección de Élite",
+  subtitle: "Estructuramos instrumentos de Seguros Monterrey New York Life diseñados milimétricamente para cada etapa de tu vida.",
   items: [
     { 
-      title: "Gastos Médicos Mayores", 
-      description: "Protección total ante accidentes o enfermedades. El respaldo que tú y tu familia necesitan.",
-      badge: "Protección Premium", // Antes decía Producto Gancho
-      featured: true,
-      href: "#formulario",
-      imageSrc: "/images/home/card-sgmm.webp"
+      title: "Gastos Médicos", 
+      badge: "Línea Alfa Medical",
+      description: "Acceso preferencial a la mejor red hospitalaria de México y el mundo. Blindamos tu patrimonio ante cualquier eventualidad de salud, garantizando atención médica de primer nivel sin comprometer tus finanzas.",
+      imageSrc: "/images/home/seguro-gastos-medicos.webp" 
     },
     { 
-      title: "Plan Personal de Retiro", 
-      description: "Construye un retiro digno con ventajas fiscales. Estrategia de ahorro a largo plazo.",
-      badge: "Estrategia Futura", // Antes decía Estratégico
-      href: "#formulario",
-      imageSrc: "/images/home/card-ppr.webp"
+      title: "Retiro", 
+      badge: "Estrategia Imagina Ser",
+      description: "Construye una jubilación digna con rendimientos garantizados. Aprovecha al máximo los beneficios fiscales (deducibilidad bajo el Art. 151 de la LISR) mientras proteges a tu familia con un seguro de vida integrado.",
+      imageSrc: "/images/home/seguro-retiro.webp" 
     },
     { 
-      title: "Seguro de Vida", 
-      description: "Garantiza el sustento de tus seres queridos y protege tu patrimonio familiar.",
-      badge: "Respaldo Familiar", // Agregado para simetría
-      href: "#formulario",
-      imageSrc: "/images/home/card-vida.webp"
+      title: "SeguBeca", 
+      badge: "Fideicomiso Educativo",
+      description: "El instrumento líder en México para garantizar la educación universitaria de tus hijos. Aseguramos que su fondo educativo se complete y se entregue, incluso si llegas a faltar o sufres una invalidez total.",
+      imageSrc: "/images/home/seguro-segubeca.webp" 
     },
     { 
-      title: "Seguro de Auto", 
-      description: "Cobertura completa para tu vehículo con asistencia inmediata en cualquier percance.",
-      badge: "Cobertura Total", // Agregado para simetría
-      href: "#formulario",
-      imageSrc: "/images/home/card-auto.webp"
+      title: "Ahorro", 
+      badge: "Acumulación Estratégica",
+      description: "Diversifica tu capital con herramientas de ahorro estructurado a corto, mediano y largo plazo. Maximiza tus recursos con rendimientos estables y protección por fallecimiento durante todo el plazo de tu meta.",
+      imageSrc: "/images/home/seguro-ahorro.webp" 
+    },
+    { 
+      title: "Seguro Dotal", 
+      badge: "Protección + Capitalización",
+      description: "La arquitectura financiera perfecta. Garantiza una suma asegurada en vida al finalizar el plazo contratado, manteniendo a tu familia completamente protegida económicamente desde el primer día.",
+      imageSrc: "/images/home/seguro-dotal.webp" 
     }
   ]
 };
